@@ -39,133 +39,19 @@ public:
     // Matches the O(1) time and space logic: after locating P, no traversal is needed
     template <typename T>
     void deleteNode(LinkedList<T>& list, int index) {
-        using Node = typename LinkedList<T>::Node;
-
-        // Only locates P (simulates "we have a pointer P"); the removal itself uses just P
-        if (index < 0 || index >= list.size()) {
-            return;
-        }
-        Node* P = list.searchNode(index);
-
-        // Validation: P must exist and cannot be the last node (tail)
-        if (P->next == nullptr) {
-            return;
-        }
-
-        // Identifies the node that will be physically removed
-        Node* nextNode = P->next;
-
-        // Transfers the element of the next node to the current one (P)
-        P->item = nextNode->item;
-
-        // Relinks the list, "skipping" nextNode
-        P->next = nextNode->next;
-
-        // If the removed node was the tail, P is now the last node
-        if (nextNode == list.tail) {
-            list.tail = P;
-        }
-
-        delete nextNode;  // Releases memory (replaces the reference cleanup of the TAD)
-        list.count--;     // Updates the logical size of the list
+        // TODO: Implement node deletion without predecessor in O(1)
     }
 };
 
 int main() {
     Solution solver;
+    LinkedList<int> list;
 
-    // Test Case 1: Specification Example (Delete intermediate node with value 5)
-    {
-        cout << "--- Test Case 1: Delete Intermediate Node ---\n";
-        LinkedList<int> list;
-        vector<int> initialValues = {20, 4, 5, 19, 47};
-        for (int val : initialValues) {
-            list.addLast(val);
-        }
+    for (int v : {20, 4, 5, 19, 47}) list.addLast(v);
 
-        cout << "Before:   " << list.toString() << "\n";
-        cout << "Size:     " << list.size() << "\n";
-
-        // Finding position of element 5 (index 2)
-        int targetIndex = list.find(5);
-        if (targetIndex != -1) {
-            solver.deleteNode(list, targetIndex);
-        }
-
-        cout << "Output:   " << list.toString() << " (Expected: [20, 4, 19, 47])\n";
-        cout << "Size:     " << list.size() << " (Expected: 4)\n\n";
-    }
-
-    // Test Case 2: Delete Second Node in small chain
-    {
-        cout << "--- Test Case 2: Delete Second Node ---\n";
-        LinkedList<int> list;
-        vector<int> initialValues = {1, 2, 3, 4};
-        for (int val : initialValues) {
-            list.addLast(val);
-        }
-
-        cout << "Before:   " << list.toString() << "\n";
-        int targetIndex = list.find(2);
-        if (targetIndex != -1) {
-            solver.deleteNode(list, targetIndex);
-        }
-
-        cout << "Output:   " << list.toString() << " (Expected: [1, 3, 4])\n";
-        cout << "Size:     " << list.size() << " (Expected: 3)\n\n";
-    }
-
-    // Test Case 3: Delete Penultimate Node
-    {
-        cout << "--- Test Case 3: Delete Penultimate Node ---\n";
-        LinkedList<int> list;
-        vector<int> initialValues = {10, 20, 30};
-        for (int val : initialValues) {
-            list.addLast(val);
-        }
-
-        cout << "Before:   " << list.toString() << "\n";
-        int targetIndex = list.find(20);
-        if (targetIndex != -1) {
-            solver.deleteNode(list, targetIndex);
-        }
-
-        cout << "Output:   " << list.toString() << " (Expected: [10, 30])\n";
-        cout << "Size:     " << list.size() << " (Expected: 2)\n\n";
-    }
-
-    // Test Case 4: Tail integrity after deleting the penultimate node
-    {
-        cout << "--- Test Case 4: Tail Integrity ---\n";
-        LinkedList<int> list;
-        vector<int> initialValues = {10, 20, 30};
-        for (int val : initialValues) {
-            list.addLast(val);
-        }
-
-        solver.deleteNode(list, 1);
-        list.addLast(40);  // a stale tail would corrupt the list here
-
-        cout << "Output:   " << list.toString() << " (Expected: [10, 30, 40])\n";
-        cout << "Size:     " << list.size() << " (Expected: 3)\n\n";
-    }
-
-    // Test Case 5: Not applicable cases (P is the last node, or invalid position)
-    {
-        cout << "--- Test Case 5: Last Node and Invalid Position ---\n";
-        LinkedList<int> list;
-        vector<int> initialValues = {10, 20, 30};
-        for (int val : initialValues) {
-            list.addLast(val);
-        }
-
-        solver.deleteNode(list, list.size() - 1);  // last node: technique does not apply
-        solver.deleteNode(list, -1);
-        solver.deleteNode(list, 10);
-
-        cout << "Output:   " << list.toString() << " (Expected: [10, 20, 30])\n";
-        cout << "Size:     " << list.size() << " (Expected: 3)\n";
-    }
+    // TODO: Add test calls for deleteNode
+    solver.deleteNode(list, 2);
+    cout << list.toString() << "\n";
 
     return 0;
 }
