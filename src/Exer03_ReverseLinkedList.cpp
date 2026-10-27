@@ -49,19 +49,14 @@ int main() {
     {
         cout << "--- Test Case 1: Specification Example ---\n";
         LinkedList<int> list;
-        vector<int> initialValues = {20, 4, 5, 19, 47};
-        for (int val : initialValues) {
+        for (int val : {20, 4, 5, 19, 47}) {
             list.addLast(val);
         }
 
         cout << "Before:   " << list.toString() << "\n";
-        solver.reverseList(list);
-        cout << "Output:   " << list.toString() << " (Expected: [47, 19, 5, 4, 20])\n";
-        cout << "Size:     " << list.size() << " (Expected: 5)\n";
 
-        // Validate tail functionality by appending an item
-        list.addLast(99);
-        cout << "Append 99:" << list.toString() << " (Expected: [47, 19, 5, 4, 20, 99])\n\n";
+        // TODO: Reverse list using solver, print results (Expected: [47, 19, 5, 4, 20], Size: 5), append 99 to validate tail (Expected: [47, 19, 5, 4, 20, 99])
+
     }
 
     // Test Case 2: Two Elements ([1 -> 2])
@@ -72,9 +67,9 @@ int main() {
         list.addLast(2);
 
         cout << "Before:   " << list.toString() << "\n";
-        solver.reverseList(list);
-        cout << "Output:   " << list.toString() << " (Expected: [2, 1])\n";
-        cout << "Size:     " << list.size() << " (Expected: 2)\n\n";
+
+        // TODO: Reverse list using solver and print results (Expected: [2, 1], Size: 2)
+
     }
 
     // Test Case 3: Single Element ([10])
@@ -84,9 +79,9 @@ int main() {
         list.addLast(10);
 
         cout << "Before:   " << list.toString() << "\n";
-        solver.reverseList(list);
-        cout << "Output:   " << list.toString() << " (Expected: [10])\n";
-        cout << "Size:     " << list.size() << " (Expected: 1)\n\n";
+
+        // TODO: Reverse list using solver and print results (Expected: [10], Size: 1)
+
     }
 
     // Test Case 4: Empty List
@@ -95,9 +90,9 @@ int main() {
         LinkedList<int> list;
 
         cout << "Before:   " << list.toString() << "\n";
-        solver.reverseList(list);
-        cout << "Output:   " << list.toString() << " (Expected: [])\n";
-        cout << "Size:     " << list.size() << " (Expected: 0)\n";
+
+        // TODO: Reverse empty list using solver and print results (Expected: [], Size: 0)
+
     }
 
     return 0;

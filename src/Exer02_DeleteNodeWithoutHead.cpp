@@ -58,14 +58,8 @@ int main() {
         cout << "Before:   " << list.toString() << "\n";
         cout << "Size:     " << list.size() << "\n";
 
-        // Finding position of element 5 (index 2)
-        int targetIndex = list.find(5);
-        if (targetIndex != -1) {
-            solver.deleteNode(list, targetIndex);
-        }
+        // TODO: Find index of element 5, delete it using solver, and print results (Expected: [20, 4, 19, 47], Size: 4)
 
-        cout << "Output:   " << list.toString() << " (Expected: [20, 4, 19, 47])\n";
-        cout << "Size:     " << list.size() << " (Expected: 4)\n\n";
     }
 
     // Test Case 2: Delete Second Node in small chain
@@ -78,13 +72,9 @@ int main() {
         }
 
         cout << "Before:   " << list.toString() << "\n";
-        int targetIndex = list.find(2);
-        if (targetIndex != -1) {
-            solver.deleteNode(list, targetIndex);
-        }
 
-        cout << "Output:   " << list.toString() << " (Expected: [1, 3, 4])\n";
-        cout << "Size:     " << list.size() << " (Expected: 3)\n\n";
+        // TODO: Find index of element 2, delete it using solver, and print results (Expected: [1, 3, 4], Size: 3)
+
     }
 
     // Test Case 3: Delete Penultimate Node
@@ -97,16 +87,12 @@ int main() {
         }
 
         cout << "Before:   " << list.toString() << "\n";
-        int targetIndex = list.find(20);
-        if (targetIndex != -1) {
-            solver.deleteNode(list, targetIndex);
-        }
 
-        cout << "Output:   " << list.toString() << " (Expected: [10, 30])\n";
-        cout << "Size:     " << list.size() << " (Expected: 2)\n\n";
+        // TODO: Find index of element 20, delete it using solver, and print results (Expected: [10, 30], Size: 2)
+
     }
 
-    // Test Case 4: Tail integrity after deleting the penultimate node
+    // Test Case 4: Tail integrity after deleting penultimate node
     {
         cout << "--- Test Case 4: Tail Integrity ---\n";
         LinkedList<int> list;
@@ -115,14 +101,11 @@ int main() {
             list.addLast(val);
         }
 
-        solver.deleteNode(list, 1);
-        list.addLast(40);  // a stale tail would corrupt the list here
+        // TODO: Delete index 1, append 40 to test tail pointer, and print results (Expected: [10, 30, 40], Size: 3)
 
-        cout << "Output:   " << list.toString() << " (Expected: [10, 30, 40])\n";
-        cout << "Size:     " << list.size() << " (Expected: 3)\n\n";
     }
 
-    // Test Case 5: Not applicable cases (P is the last node, or invalid position)
+    // Test Case 5: Not applicable cases (Last node and out of bounds)
     {
         cout << "--- Test Case 5: Last Node and Invalid Position ---\n";
         LinkedList<int> list;
@@ -131,12 +114,8 @@ int main() {
             list.addLast(val);
         }
 
-        solver.deleteNode(list, list.size() - 1);  // last node: technique does not apply
-        solver.deleteNode(list, -1);
-        solver.deleteNode(list, 10);
+        // TODO: Attempt to delete last node (size - 1) and invalid indices (-1, 10), then verify list remains unchanged (Expected: [10, 20, 30], Size: 3)
 
-        cout << "Output:   " << list.toString() << " (Expected: [10, 20, 30])\n";
-        cout << "Size:     " << list.size() << " (Expected: 3)\n";
     }
 
     return 0;

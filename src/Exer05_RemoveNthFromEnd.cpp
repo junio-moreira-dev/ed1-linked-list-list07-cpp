@@ -73,82 +73,68 @@ int main() {
     {
         cout << "--- Test Case 1: Remove 2nd From End ---\n";
         LinkedList<int> list;
-        fill(list, {1, 2, 3, 4, 5});
+        for (int val : {1, 2, 3, 4, 5}) list.addLast(val);
 
         cout << "Before:   " << list.toString() << "\n";
-        auto* head = solver.removeNthFromEnd(list, 2);
 
-        cout << "Output:   " << list.toString() << " (Expected: [1, 2, 3, 5])\n";
-        cout << "Head:     " << head->item << " (Expected: 1)\n";
-        cout << "Size:     " << list.size() << " (Expected: 4)\n\n";
+        // TODO: Remove 2nd node from end using solver and print results (Expected: [1, 2, 3, 5], Head: 1, Size: 4)
+
     }
 
     // Test Case 2: Single element list
     {
         cout << "--- Test Case 2: Single Element ---\n";
         LinkedList<int> list;
-        fill(list, {1});
+        list.addLast(1);
 
         cout << "Before:   " << list.toString() << "\n";
-        auto* head = solver.removeNthFromEnd(list, 1);
 
-        cout << "Output:   " << list.toString() << " (Expected: [])\n";
-        cout << "Head null: " << (head == nullptr) << " (Expected: 1)\n";
-        cout << "Size:     " << list.size() << " (Expected: 0)\n\n";
+        // TODO: Remove 1st node from end using solver and print results (Expected: [], Head null: 1, Size: 0)
+
     }
 
     // Test Case 3: Remove the last node (n = 1)
     {
         cout << "--- Test Case 3: Remove Last Node ---\n";
         LinkedList<int> list;
-        fill(list, {1, 2});
+        for (int val : {1, 2}) list.addLast(val);
 
         cout << "Before:   " << list.toString() << "\n";
-        solver.removeNthFromEnd(list, 1);
 
-        cout << "Output:   " << list.toString() << " (Expected: [1])\n";
-        cout << "Size:     " << list.size() << " (Expected: 1)\n\n";
+        // TODO: Remove last node (n = 1) using solver and print results (Expected: [1], Size: 1)
+
     }
 
     // Test Case 4: Remove the head (n equals the size)
     {
         cout << "--- Test Case 4: Remove Head ---\n";
         LinkedList<int> list;
-        fill(list, {1, 2, 3});
+        for (int val : {1, 2, 3}) list.addLast(val);
 
         cout << "Before:   " << list.toString() << "\n";
-        auto* head = solver.removeNthFromEnd(list, 3);
 
-        cout << "Output:   " << list.toString() << " (Expected: [2, 3])\n";
-        cout << "Head:     " << head->item << " (Expected: 2)\n";
-        cout << "Size:     " << list.size() << " (Expected: 2)\n\n";
+        // TODO: Remove head node (n = 3) using solver and print results (Expected: [2, 3], Head: 2, Size: 2)
+
     }
 
     // Test Case 5: Tail integrity after removing the last node
     {
         cout << "--- Test Case 5: Tail Integrity ---\n";
         LinkedList<int> list;
-        fill(list, {1, 2, 3});
+        for (int val : {1, 2, 3}) list.addLast(val);
 
-        solver.removeNthFromEnd(list, 1);
-        list.addLast(4);  // a stale tail would corrupt the list here
+        // TODO: Remove last node (n = 1), append 4 to test tail pointer, and print results (Expected: [1, 2, 4], Size: 3)
 
-        cout << "Output:   " << list.toString() << " (Expected: [1, 2, 4])\n";
-        cout << "Size:     " << list.size() << " (Expected: 3)\n\n";
     }
 
     // Test Case 6: Invalid n (list must not change)
     {
         cout << "--- Test Case 6: Invalid n ---\n";
         LinkedList<int> list;
-        fill(list, {1, 2, 3});
+        for (int val : {1, 2, 3}) list.addLast(val);
 
-        solver.removeNthFromEnd(list, 0);
-        solver.removeNthFromEnd(list, 4);
-        solver.removeNthFromEnd(list, -1);
+        // TODO: Call solver with n = 0, n = 4, and n = -1, then verify list remains unchanged (Expected: [1, 2, 3], Size: 3)
 
-        cout << "Output:   " << list.toString() << " (Expected: [1, 2, 3])\n";
-        cout << "Size:     " << list.size() << " (Expected: 3)\n";
     }
 
     return 0;

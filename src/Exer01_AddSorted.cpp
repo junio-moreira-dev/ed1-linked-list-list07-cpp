@@ -35,9 +35,9 @@ int main() {
     {
         cout << "--- Test Case 1: Empty List Insertion ---\n";
         LinkedList<int> list;
-        solver.testSortedInsertion(list, {10});
-        cout << "Output:   " << list.toString() << " (Expected: [10])\n";
-        cout << "Size:     " << list.size() << " (Expected: 1)\n\n";
+
+        // TODO: Insert value 10 into 'list' using solver and print result (Expected: [10], Size: 1)
+
     }
 
     // Test Case 2: Insertion at the beginning (minimum element)
@@ -49,9 +49,9 @@ int main() {
         list.addLast(30);
 
         cout << "Before:   " << list.toString() << "\n";
-        solver.testSortedInsertion(list, {5});
-        cout << "Output:   " << list.toString() << " (Expected: [5, 10, 20, 30])\n";
-        cout << "Size:     " << list.size() << " (Expected: 4)\n\n";
+
+        // TODO: Insert value 5 into 'list' using solver and print result (Expected: [5, 10, 20, 30], Size: 4)
+
     }
 
     // Test Case 3: Insertion in the middle
@@ -63,9 +63,9 @@ int main() {
         list.addLast(30);
 
         cout << "Before:   " << list.toString() << "\n";
-        solver.testSortedInsertion(list, {25});
-        cout << "Output:   " << list.toString() << " (Expected: [10, 20, 25, 30])\n";
-        cout << "Size:     " << list.size() << " (Expected: 4)\n\n";
+
+        // TODO: Insert value 25 into 'list' using solver and print result (Expected: [10, 20, 25, 30], Size: 4)
+
     }
 
     // Test Case 4: Insertion at the end (maximum element)
@@ -77,18 +77,18 @@ int main() {
         list.addLast(30);
 
         cout << "Before:   " << list.toString() << "\n";
-        solver.testSortedInsertion(list, {40});
-        cout << "Output:   " << list.toString() << " (Expected: [10, 20, 30, 40])\n";
-        cout << "Size:     " << list.size() << " (Expected: 4)\n\n";
+
+        // TODO: Insert value 40 into 'list' using solver and print result (Expected: [10, 20, 30, 40], Size: 4)
+
     }
 
     // Test Case 5: Full build from scratch with unordered items
     {
         cout << "--- Test Case 5: Build From Unordered Stream ---\n";
         LinkedList<int> list;
-        solver.testSortedInsertion(list, {30, 10, 50, 20, 40});
-        cout << "Output:   " << list.toString() << " (Expected: [10, 20, 30, 40, 50])\n";
-        cout << "Size:     " << list.size() << " (Expected: 5)\n";
+
+        // TODO: Insert stream {30, 10, 50, 20, 40} using solver and print result (Expected: [10, 20, 30, 40, 50], Size: 5)
+
     }
 
     return 0;

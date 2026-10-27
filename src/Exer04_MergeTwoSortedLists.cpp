@@ -87,119 +87,77 @@ int main() {
     // Test Case 1: Specification Example
     {
         cout << "--- Test Case 1: Specification Example ---\n";
-        LinkedList<int> list1;
-        LinkedList<int> list2;
-        fill(list1, {1, 3, 5, 7});
-        fill(list2, {2, 4, 6, 8});
+        LinkedList<int> list1, list2;
+        for (int val : {1, 3, 5, 7}) list1.addLast(val);
+        for (int val : {2, 4, 6, 8}) list2.addLast(val);
 
         cout << "List1:    " << list1.toString() << "\n";
         cout << "List2:    " << list2.toString() << "\n";
-        auto* head = solver.mergeTwoLists(list1, list2);
 
-        cout << "Output:   " << list1.toString() << " (Expected: [1, 2, 3, 4, 5, 6, 7, 8])\n";
-        cout << "Head:     " << head->item << " (Expected: 1)\n";
-        cout << "Size:     " << list1.size() << " (Expected: 8)\n";
-        cout << "List2:    " << list2.toString() << " (Expected: [])\n\n";
+        // TODO: Merge list1 and list2 using solver, verify returned head value (Expected: 1), and print merged list (Expected: [1, 2, 3, 4, 5, 6, 7, 8], Size: 8)
+
     }
 
     // Test Case 2: First list is empty
     {
         cout << "--- Test Case 2: First List Empty ---\n";
-        LinkedList<int> list1;
-        LinkedList<int> list2;
-        fill(list2, {1, 2, 3});
+        LinkedList<int> list1, list2;
+        for (int val : {1, 2, 3}) list2.addLast(val);
 
-        solver.mergeTwoLists(list1, list2);
+        // TODO: Merge list1 and list2 using solver and print merged list (Expected: [1, 2, 3], Size: 3)
 
-        cout << "Output:   " << list1.toString() << " (Expected: [1, 2, 3])\n";
-        cout << "Size:     " << list1.size() << " (Expected: 3)\n\n";
     }
 
     // Test Case 3: Second list is empty
     {
         cout << "--- Test Case 3: Second List Empty ---\n";
-        LinkedList<int> list1;
-        LinkedList<int> list2;
-        fill(list1, {1, 2, 3});
+        LinkedList<int> list1, list2;
+        for (int val : {1, 2, 3}) list1.addLast(val);
 
-        solver.mergeTwoLists(list1, list2);
+        // TODO: Merge list1 and list2 using solver and print merged list (Expected: [1, 2, 3], Size: 3)
 
-        cout << "Output:   " << list1.toString() << " (Expected: [1, 2, 3])\n";
-        cout << "Size:     " << list1.size() << " (Expected: 3)\n\n";
     }
 
     // Test Case 4: Both lists empty
     {
         cout << "--- Test Case 4: Both Lists Empty ---\n";
-        LinkedList<int> list1;
-        LinkedList<int> list2;
+        LinkedList<int> list1, list2;
 
-        auto* head = solver.mergeTwoLists(list1, list2);
+        // TODO: Merge both empty lists, verify returned head is nullptr, and print result (Expected: [], Size: 0)
 
-        cout << "Output:   " << list1.toString() << " (Expected: [])\n";
-        cout << "Head null: " << (head == nullptr) << " (Expected: 1)\n";
-        cout << "Size:     " << list1.size() << " (Expected: 0)\n\n";
     }
 
-    // Test Case 5: Lists of different sizes (rest of one list is attached)
+    // Test Case 5: Lists of different sizes
     {
         cout << "--- Test Case 5: Different Sizes ---\n";
-        LinkedList<int> list1;
-        LinkedList<int> list2;
-        fill(list1, {1, 2, 3});
-        fill(list2, {4, 5, 6, 7});
+        LinkedList<int> list1, list2;
+        for (int val : {1, 2, 3}) list1.addLast(val);
+        for (int val : {4, 5, 6, 7}) list2.addLast(val);
 
-        solver.mergeTwoLists(list1, list2);
-        cout << "Output:   " << list1.toString() << " (Expected: [1, 2, 3, 4, 5, 6, 7])\n";
+        // TODO: Merge list1 and list2 using solver and print result (Expected: [1, 2, 3, 4, 5, 6, 7], Size: 7)
 
-        LinkedList<int> list3;
-        LinkedList<int> list4;
-        fill(list3, {5, 6, 7});
-        fill(list4, {1, 2});
-
-        solver.mergeTwoLists(list3, list4);
-        cout << "Output:   " << list3.toString() << " (Expected: [1, 2, 5, 6, 7])\n";
-        cout << "Size:     " << list3.size() << " (Expected: 5)\n\n";
     }
 
     // Test Case 6: Duplicate values
     {
         cout << "--- Test Case 6: Duplicates ---\n";
-        LinkedList<int> list1;
-        LinkedList<int> list2;
-        fill(list1, {1, 3, 3, 5});
-        fill(list2, {3, 4});
+        LinkedList<int> list1, list2;
+        for (int val : {1, 3, 3, 5}) list1.addLast(val);
+        for (int val : {3, 4}) list2.addLast(val);
 
-        solver.mergeTwoLists(list1, list2);
+        // TODO: Merge lists containing duplicate values and print result (Expected: [1, 3, 3, 3, 4, 5], Size: 6)
 
-        cout << "Output:   " << list1.toString() << " (Expected: [1, 3, 3, 3, 4, 5])\n";
-        cout << "Size:     " << list1.size() << " (Expected: 6)\n\n";
     }
 
-    // Test Case 7: Tail integrity (tail comes from list1 or from list2)
+    // Test Case 7: Tail integrity
     {
         cout << "--- Test Case 7: Tail Integrity ---\n";
-        LinkedList<int> list1;
-        LinkedList<int> list2;
-        fill(list1, {1, 3, 9});
-        fill(list2, {2, 4});
+        LinkedList<int> list1, list2;
+        for (int val : {1, 3, 9}) list1.addLast(val);
+        for (int val : {2, 4}) list2.addLast(val);
 
-        solver.mergeTwoLists(list1, list2);
-        list1.addLast(10);  // a stale tail would corrupt the list here
-        cout << "Output:   " << list1.toString() << " (Expected: [1, 2, 3, 4, 9, 10])\n";
+        // TODO: Merge lists, append 10 to test tail pointer, and print result (Expected: [1, 2, 3, 4, 9, 10])
 
-        LinkedList<int> list3;
-        LinkedList<int> list4;
-        fill(list3, {1, 3});
-        fill(list4, {2, 4, 8});
-
-        solver.mergeTwoLists(list3, list4);
-        list3.addLast(10);
-        cout << "Output:   " << list3.toString() << " (Expected: [1, 2, 3, 4, 8, 10])\n";
-
-        // list2 was emptied by the merge and can be reused safely
-        list4.addLast(7);
-        cout << "Reuse:    " << list4.toString() << " (Expected: [7])\n";
     }
 
     return 0;
