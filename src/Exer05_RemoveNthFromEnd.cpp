@@ -54,51 +54,7 @@ public:
     // Returns the pointer to the (updated) head of the list.
     template <typename T>
     typename LinkedList<T>::Node* removeNthFromEnd(LinkedList<T>& list, int n) {
-        using Node = typename LinkedList<T>::Node;
-
-        if (n <= 0) {
-            return list.head;
-        }
-
-        Node* fast = list.head;
-        Node* slow = list.head;
-
-        // Step 1: fast advances n positions ahead of slow
-        for (int i = 0; i < n; i++) {
-            if (fast == nullptr) {
-                return list.head;  // n is greater than the size of the list
-            }
-            fast = fast->next;
-        }
-
-        Node* removed;
-
-        if (fast == nullptr) {
-            // n equals the size: the node to remove is the head
-            removed = list.head;
-            list.head = list.head->next;
-            if (list.head == nullptr) {
-                list.tail = nullptr;  // the list became empty
-            }
-        } else {
-            // Step 2: both advance until fast reaches the last node
-            while (fast->next != nullptr) {
-                fast = fast->next;
-                slow = slow->next;
-            }
-
-            // Step 3: slow->next is the node to remove
-            removed = slow->next;
-            slow->next = removed->next;
-
-            if (removed == list.tail) {
-                list.tail = slow;  // the removed node was the last one
-            }
-        }
-
-        delete removed;  // Releases the memory of the removed node
-        list.count--;    // Updates the logical size of the list
-
+        // TODO: Remove n-th node from end in a single pass
         return list.head;
     }
 };

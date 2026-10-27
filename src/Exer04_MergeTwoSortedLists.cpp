@@ -69,45 +69,8 @@ public:
     // Returns the pointer to the head of the merged list.
     template <typename T>
     typename LinkedList<T>::Node* mergeTwoLists(LinkedList<T>& list1, LinkedList<T>& list2) {
-        using Node = typename LinkedList<T>::Node;
-
-        Node* a = list1.head;
-        Node* b = list2.head;
-        Node* tail1 = list1.tail;
-        Node* tail2 = list2.tail;
-
-        // Temporary node that marks the start of the merged chain
-        Node* dummy = new Node(T());
-        Node* temp = dummy;
-
-        // While both lists have nodes, link the smaller one
-        while (a != nullptr && b != nullptr) {
-            if (b->item < a->item) {
-                temp->next = b;
-                b = b->next;
-            } else {
-                temp->next = a;
-                a = a->next;
-            }
-            temp = temp->next;
-        }
-
-        // One list ended: attach the rest of the other one (also covers empty lists)
-        temp->next = (a != nullptr) ? a : b;
-
-        // The merged chain starts after the dummy; the dummy is no longer needed
-        Node* head = dummy->next;
-        delete dummy;
-
-        // The nodes now belong to list1; list2 must not own them anymore
-        list1.head = head;
-        list1.tail = (a != nullptr) ? tail1 : tail2;  // the rest comes from the list that did not end
-        list1.count += list2.count;
-        list2.head = nullptr;
-        list2.tail = nullptr;
-        list2.count = 0;
-
-        return head;
+        // TODO: Merge two sorted lists into one
+        return nullptr;
     }
 };
 

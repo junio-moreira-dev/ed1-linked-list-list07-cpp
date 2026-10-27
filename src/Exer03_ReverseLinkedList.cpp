@@ -38,22 +38,7 @@ public:
     // Matches the exact variable naming from the Python LeetCode 206 solution
     template <typename T>
     void reverseList(LinkedList<T>& list) {
-        using Node = typename LinkedList<T>::Node;
-
-        Node* new_list = nullptr;
-        Node* head = list.head;
-        Node* oldHead = list.head; // Preserves old head to properly update tail
-
-        while (head != nullptr) {
-            Node* next_node = head->next; // next_node = head.next
-            head->next = new_list;         // head.next = new_list
-            new_list = head;               // new_list = head
-            head = next_node;              // head = next_node
-        }
-
-        // Fix list metadata: head and tail pointers
-        list.tail = oldHead;
-        list.head = new_list; // return new_list
+        // TODO: Reverse the linked list in-place
     }
 };
 

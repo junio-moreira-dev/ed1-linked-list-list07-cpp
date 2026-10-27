@@ -15,22 +15,7 @@ public:
     // (Solution is a friend of LinkedList, so it can read head/tail and update count)
     template <typename T>
     void addSorted(LinkedList<T>& list, const T& item) {
-        // Node is a private type nested in LinkedList, so it is named through the class
-        using NodeT = typename LinkedList<T>::Node;
-
-        if (list.count == 0 || !(list.head->item < item)) {
-            list.addFirst(item);
-        } else if (!(item < list.tail->item)) {
-            list.addLast(item);
-        } else {
-            NodeT* current = list.head;
-            while (current->next != nullptr && current->next->item < item) {
-                current = current->next;
-            }
-            NodeT* newNode = new NodeT(item, current->next);
-            current->next = newNode;
-            list.count++;
-        }
+        // TODO: Implement sorted insertion into the LinkedList
     }
 
     // Takes a linked list and a vector of values, inserting each in ascending sorted order

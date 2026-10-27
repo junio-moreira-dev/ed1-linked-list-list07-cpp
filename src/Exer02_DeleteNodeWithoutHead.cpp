@@ -39,35 +39,7 @@ public:
     // Matches the O(1) time and space logic: after locating P, no traversal is needed
     template <typename T>
     void deleteNode(LinkedList<T>& list, int index) {
-        using Node = typename LinkedList<T>::Node;
-
-        // Only locates P (simulates "we have a pointer P"); the removal itself uses just P
-        if (index < 0 || index >= list.size()) {
-            return;
-        }
-        Node* P = list.searchNode(index);
-
-        // Validation: P must exist and cannot be the last node (tail)
-        if (P->next == nullptr) {
-            return;
-        }
-
-        // Identifies the node that will be physically removed
-        Node* nextNode = P->next;
-
-        // Transfers the element of the next node to the current one (P)
-        P->item = nextNode->item;
-
-        // Relinks the list, "skipping" nextNode
-        P->next = nextNode->next;
-
-        // If the removed node was the tail, P is now the last node
-        if (nextNode == list.tail) {
-            list.tail = P;
-        }
-
-        delete nextNode;  // Releases memory (replaces the reference cleanup of the TAD)
-        list.count--;     // Updates the logical size of the list
+        // TODO: Implement node deletion without predecessor in O(1)
     }
 };
 
