@@ -13,6 +13,8 @@
 
 template <typename T>
 class LinkedList : public List<T> {
+    friend class Solution;  // Solution may access head, tail, count and Node; nothing else can
+
 private:
     // Internal struct to represent a node
     struct Node {
